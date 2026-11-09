@@ -1,0 +1,182 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Lole-App Design System — paleta oficial
+ * Azul noche #06162F · Azul profundo #0C2448 · Dorado champagne #E5BF85
+ * Dorado cálido #EFAD4D · Bronce suave #C79E75 · Blanco cálido #F4F1EA · Gris neutro #696E75
+ */
+
+@theme inline {
+  --font-display: "DM Serif Display", Georgia, serif;
+  --font-sans: "Fira Sans", system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  /* Marca */
+  --color-night: var(--night);
+  --color-deep: var(--deep);
+  --color-champagne: var(--champagne);
+  --color-gold: var(--gold);
+  --color-bronze: var(--bronze);
+  --color-cream: var(--cream);
+  --color-neutral: var(--neutral);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.875rem;
+
+  --night: oklch(0.19 0.05 260);      /* #06162F */
+  --deep: oklch(0.265 0.07 258);      /* #0C2448 */
+  --champagne: oklch(0.82 0.085 76);  /* #E5BF85 */
+  --gold: oklch(0.79 0.135 72);       /* #EFAD4D */
+  --bronze: oklch(0.72 0.07 65);      /* #C79E75 */
+  --cream: oklch(0.955 0.01 85);      /* #F4F1EA */
+  --neutral: oklch(0.52 0.012 255);   /* #696E75 */
+
+  --background: var(--night);
+  --foreground: var(--cream);
+  --card: var(--deep);
+  --card-foreground: var(--cream);
+  --popover: var(--deep);
+  --popover-foreground: var(--cream);
+  --primary: var(--gold);
+  --primary-foreground: var(--night);
+  --secondary: oklch(0.31 0.07 258);
+  --secondary-foreground: var(--cream);
+  --muted: oklch(0.23 0.06 259);
+  --muted-foreground: oklch(0.7 0.015 255); /* gris neutro aclarado para legibilidad sobre azul */
+  --accent: oklch(0.32 0.065 258);
+  --accent-foreground: var(--champagne);
+  --destructive: oklch(0.62 0.19 27);
+  --destructive-foreground: var(--cream);
+  --success: oklch(0.72 0.13 160);
+  --border: color-mix(in oklab, var(--bronze) 28%, transparent);
+  --input: color-mix(in oklab, var(--bronze) 35%, transparent);
+  --ring: var(--champagne);
+
+  --chart-1: var(--gold);
+  --chart-2: var(--champagne);
+  --chart-3: var(--bronze);
+  --chart-4: oklch(0.6 0.08 250);
+  --chart-5: var(--cream);
+
+  --sidebar: oklch(0.165 0.045 260);
+  --sidebar-foreground: var(--cream);
+  --sidebar-primary: var(--gold);
+  --sidebar-primary-foreground: var(--night);
+  --sidebar-accent: var(--deep);
+  --sidebar-accent-foreground: var(--champagne);
+  --sidebar-border: color-mix(in oklab, var(--bronze) 22%, transparent);
+  --sidebar-ring: var(--champagne);
+
+  --gradient-gold: linear-gradient(135deg, var(--champagne), var(--gold));
+  --gradient-night: linear-gradient(180deg, var(--night), var(--deep));
+  --gradient-hero: linear-gradient(100deg, color-mix(in oklab, var(--night) 96%, transparent) 30%, color-mix(in oklab, var(--night) 55%, transparent) 70%, color-mix(in oklab, var(--night) 20%, transparent));
+  --shadow-gold: 0 10px 30px -10px color-mix(in oklab, var(--gold) 55%, transparent);
+  --shadow-card: 0 20px 40px -24px oklch(0 0 0 / 0.7);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    color: var(--color-champagne);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+}
+
+@utility bg-gradient-gold {
+  background-image: var(--gradient-gold);
+}
+@utility bg-gradient-night {
+  background-image: var(--gradient-night);
+}
+@utility bg-gradient-hero {
+  background-image: var(--gradient-hero);
+}
+@utility shadow-gold {
+  box-shadow: var(--shadow-gold);
+}
+@utility shadow-card {
+  box-shadow: var(--shadow-card);
+}
+@utility text-gradient-gold {
+  background-image: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@utility surface {
+  background-color: var(--deep);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+}
+@utility map-grid {
+  background-color: var(--night);
+  background-image:
+    linear-gradient(color-mix(in oklab, var(--bronze) 10%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--bronze) 10%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+@keyframes pin-pulse {
+  0% { transform: scale(0.6); opacity: 0.8; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+@utility animate-pin {
+  animation: pin-pulse 1.8s ease-out infinite;
+}
